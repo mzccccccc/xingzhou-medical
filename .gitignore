@@ -1,0 +1,69 @@
+# ============================================================
+#  dev 仓库 .gitignore
+#  结构: backend/(Python) + ohif/(前端 OHIF Viewer) + docx/(文档)
+#  注: backend/ 与 ohif/ 各自还带有自己的 .gitignore,
+#      其规则在对应子目录内同样生效(此处再做全局兜底)。
+# ============================================================
+
+# ---------- Python (backend, 使用 uv 管理) ----------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---------- Node / 前端 (ohif, 使用 pnpm) ----------
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---------- 测试数据(体积大, 不纳入版本管理) ----------
+backend/testdata/
+
+# ---------- 构建产物 / 缓存 ----------
+.cache/
+coverage/
+*.tsbuildinfo
+
+# ---------- 环境变量与密钥(切勿提交) ----------
+.env
+.env.*
+!.env.example
+
+# ---------- 日志 ----------
+*.log
+logs/
+
+# ---------- 操作系统 ----------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- 编辑器 ----------
+.idea/
+*.swp
+*.swo
+*~
+# 注: 不忽略 .vscode/ —— ohif 上游共享了 .vscode 工作区配置, 需保留
+
+# ---------- Claude 本地个人设置(记忆文件本身纳入版本管理) ----------
+.claude/settings.local.json
